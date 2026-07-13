@@ -1,5 +1,4 @@
 import { PhotosApi } from '@/lib/api';
-import React from 'react';
 import PhotoCard from './PhotoCard';
 
 const TopGeneration = async () => {
