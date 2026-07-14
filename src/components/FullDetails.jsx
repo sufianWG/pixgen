@@ -1,4 +1,4 @@
-import { Button, Card, Chip, Separator } from '@heroui/react';
+import { Card, Chip, Separator } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
@@ -6,13 +6,13 @@ import { IoMdDownload } from 'react-icons/io';
 
 const FullDetails = ({ photo }) => {
     return (
-        <div className='container mx-auto '>
-            <Card>
-                <div className='relative max-w-[80vw] w-[95vw] h-[40vw]'>
+        <div className='container mx-auto max-w-6xl'>
+            <Card className='w-full p-4'>
+                <div className='relative mx-auto w-full aspect-[2/1] overflow-hidden'>
                     <Image
                         src={photo.imageUrl}
                         fill
-                        sizes="(max-width: 768px) 100vw, 100vw"
+                        sizes="(max-width: 768px) calc(100vw - 2rem), 100vw"
                         alt={photo.title}
                         className='object-cover rounded-xl'>
                     </Image>
