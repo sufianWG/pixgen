@@ -1,3 +1,4 @@
+import CategoryButton from '@/components/Button/CategoryButton';
 import SmallButton from '@/components/Button/SmallButton';
 import PhotoCard from '@/components/PhotoCard';
 import { PhotosApi, PhotosCategoryApi } from '@/lib/api';
@@ -15,14 +16,10 @@ const AllPhotosPage = async ({ searchParams }) => {
         <div className='container mx-auto mt-5'>
             <div className='mb-5'>
                 <div className='flex items-center gap-2'>
-                    <Link href={'/all-photos'}>
-                        <button className='text-sm px-2 py-1 bg-transparent border text-black font-bold rounded-full transition-all cursor-pointer hover:bg-gray-100'>All</button>
-                    </Link>
+                    <CategoryButton href={'/all-photos'} isActive={!category}>All</CategoryButton>
                     {
                         photosCategory.map(cat => {
-                            return <Link href={`?category=${cat.name}`} key={cat.id}>
-                                <SmallButton>{cat.name}</SmallButton>
-                            </Link>
+                            return <CategoryButton key={cat.id} href={`?category=${cat.name}`} isActive={cat.name === category}>{cat.name}</CategoryButton>
                         })
                     }
                 </div>
