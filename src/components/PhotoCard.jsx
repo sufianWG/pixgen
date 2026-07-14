@@ -7,7 +7,7 @@ import { IoMdDownload } from 'react-icons/io';
 import Button from './Button/Button';
 
 const PhotoCard = ({ photo }) => {
-    console.log(photo);
+    // console.log(photo);
     return (
         <div>
             <Card>
