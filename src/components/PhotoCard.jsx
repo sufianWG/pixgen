@@ -1,8 +1,10 @@
-import { Button, Card, Chip, Separator } from '@heroui/react';
+import { Card, Chip, Separator } from '@heroui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { IoMdDownload } from 'react-icons/io';
+import Button from './Button/Button';
 
 const PhotoCard = ({ photo }) => {
     console.log(photo);
@@ -31,7 +33,9 @@ const PhotoCard = ({ photo }) => {
                         <span>{photo.downloads}</span>
                     </div>
                 </div>
-                <Button className='w-full' variant='outline'>View</Button>
+                <Link href={`/all-photos/${photo.id}`}>
+                    <Button>View</Button>
+                </Link>
             </Card>
         </div>
     );
