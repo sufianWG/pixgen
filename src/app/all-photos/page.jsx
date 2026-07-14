@@ -1,3 +1,4 @@
+import SmallButton from '@/components/Button/SmallButton';
 import PhotoCard from '@/components/PhotoCard';
 import { PhotosApi, PhotosCategoryApi } from '@/lib/api';
 import Link from 'next/link';
@@ -5,9 +6,9 @@ import Link from 'next/link';
 const AllPhotosPage = async ({ searchParams }) => {
     const { category } = await searchParams;
     // console.log(dataFromSearchParams);
-    const photosCategory = await PhotosCategoryApi();
-    console.log(photosCategory);
     const PhotosData = await PhotosApi();
+    const photosCategory = await PhotosCategoryApi();
+    // console.log(photosCategory);
     const actualPhotoData = category ? PhotosData.filter(targetPhoto => targetPhoto.category === category) : PhotosData
     // console.log(PhotosData);
     return (
@@ -20,7 +21,7 @@ const AllPhotosPage = async ({ searchParams }) => {
                     {
                         photosCategory.map(cat => {
                             return <Link href={`?category=${cat.name}`} key={cat.id}>
-                                <button className='text-sm px-2 py-1 bg-transparent border text-black font-bold rounded-full transition-all cursor-pointer hover:bg-gray-100'>{cat.name}</button>
+                                <SmallButton>{cat.name}</SmallButton>
                             </Link>
                         })
                     }

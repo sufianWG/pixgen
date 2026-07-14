@@ -8,7 +8,7 @@ const PhotoDetailPage = async({params}) => {
     // console.log(id);
     const PhotosData = await PhotosApi();
     const targetedPhoto = PhotosData.find(target=> parseInt(target.id) === parseInt(id))
-    console.log(targetedPhoto);
+    // console.log(targetedPhoto);
     return (
         <div className='container mx-auto'>
             <FullDetails photo={targetedPhoto}></FullDetails>
