@@ -4,22 +4,38 @@ import React from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { IoMdDownload } from 'react-icons/io';
 
-const PhotoCard = ({ photo }) => {
-    console.log(photo);
+const FullDetails = ({ photo }) => {
     return (
-        <div>
+        <div className='container mx-auto '>
             <Card>
-                <div className='relative w-full aspect-square'>
+                <div className='relative max-w-[80vw] w-[95vw] h-[40vw]'>
                     <Image
                         src={photo.imageUrl}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="(max-width: 768px) 100vw, 100vw"
                         alt={photo.title}
                         className='object-cover rounded-xl'>
                     </Image>
-                    <Chip className='absolute top-2 right-2'>{photo.category}</Chip>
                 </div>
                 <h1 className='text-xl font-bold'>{photo.title}</h1>
+                <div>
+                    <h3 className='text-lg font-bold'>Used Prompt:</h3>
+                    <p className='text-base font-medium'>{photo.prompt}</p>
+                </div>
+                <div>
+                    <p className='text-sm font-bold'>Category: <span className='font-medium'>{photo.category}</span> </p>
+                </div>
+                <div>
+                    <p className='text-sm font-bold'>Model: <span className='font-medium'>{photo.model}</span> </p>
+                </div>
+                <div>
+                    <p>Tags:</p>
+                    <div className='flex gap-2'>
+                    {
+                        photo.tags.map((tag, ind) => <Chip key={ind}>{tag}</Chip>)
+                    }
+                    </div>
+                </div>
                 <div className='flex gap-3 items-center'>
                     <div className='flex gap-3'>
                         <FaHeart className='text-xl' />
@@ -31,10 +47,9 @@ const PhotoCard = ({ photo }) => {
                         <span>{photo.downloads}</span>
                     </div>
                 </div>
-                <Button className='w-full' variant='outline'>View</Button>
             </Card>
         </div>
     );
 };
 
-export default PhotoCard;
+export default FullDetails;
