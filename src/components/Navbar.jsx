@@ -5,20 +5,21 @@ import { authClient, useSession } from "@/lib/auth-client";
 import { Avatar, Button } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 
 const Navbar = () => {
   const { data } = useSession();
   const user = data?.user;
   // console.log(user);
-  const router = useRouter()
+  
   const handleSignOut = async () => {
     
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push('/signin')
+          // router.push('/signin')
+          window.location.href = "/signin"
+          
         }
       }
     })

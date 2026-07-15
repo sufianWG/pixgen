@@ -20,7 +20,7 @@ const SignUpPage = () => {
             image: imgurl,
             password,
         });
-        // console.log(data, error);
+        console.log(data, error);
         if (!error){
             router.push('/signin')
         }
@@ -41,6 +41,7 @@ const SignUpPage = () => {
                     isRequired
                     name="name"
                     type="text"
+                    
                 >
                     <Label>Name</Label>
                     <Input placeholder="Your Name" />
@@ -95,7 +96,6 @@ const SignUpPage = () => {
                 </TextField>
                 <div className="flex gap-2">
                     <Button type="submit">
-
                         Sign Up
                     </Button>
                     <Button type="reset" variant="secondary">
