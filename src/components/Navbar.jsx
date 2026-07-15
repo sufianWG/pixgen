@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
   const { data } = useSession();
   const user = data?.user;
-  console.log(user);
+  // console.log(user);
   const router = useRouter()
   const handleSignOut = async () => {
     
