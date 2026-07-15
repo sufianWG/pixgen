@@ -1,6 +1,7 @@
 "use client"
 import { authClient } from '@/lib/auth-client';
 import { Button, Description, FieldError, Form, Input, Label, TextField } from '@heroui/react';
+import { FaGoogle } from 'react-icons/fa';
 
 
 const SignInPage = () => {
@@ -18,8 +19,14 @@ const SignInPage = () => {
         });
         // console.log(data, error);
     };
+    const handleGoogleLogin = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        });
+        // console.log(data);
+    }
     return (
-        <div className='container mx-auto mt-5'>
+        <div className='container mx-auto mt-5 max-w-96'>
             <Form
                 className="flex mx-auto w-96 flex-col gap-4" onSubmit={onSubmit}
             >
@@ -71,6 +78,9 @@ const SignInPage = () => {
                     </Button>
                 </div>
             </Form>
+            <div className='mt-3'>
+                <Button variant='outline' className={'w-full text-base rounded-full'} onClick={handleGoogleLogin}> <FaGoogle></FaGoogle> Sign In With Google</Button>
+            </div>
         </div >
     );
 };
