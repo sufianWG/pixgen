@@ -13,8 +13,8 @@ const Navbar = () => {
   const user = data?.user;
   console.log(user);
   const router = useRouter()
-  const handleSignOut = async (e) => {
-    e.preventDefault;
+  const handleSignOut = async () => {
+    
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
@@ -65,7 +65,7 @@ const Navbar = () => {
                 />
                 <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
               </Avatar>
-              <Button variant="danger" onClick={handleSignOut}>Sign Out</Button>
+              <Button type="button" variant="danger" onClick={handleSignOut}>Sign Out</Button>
             </div>
           }
           { !user &&
